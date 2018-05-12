@@ -3,7 +3,7 @@
 /**
 * 
 */
-class Shakhawat
+class Shakhawat extends Dcontroller
 {
 	
 	function __construct()

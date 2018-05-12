@@ -1,30 +1,26 @@
-<?php include 'inc/header.php' ?>
-  <div class="container-fluid">
-  <div class="row" style="margin-top: 20px;">
-  	<div class="col-md-12">
-  		<div class="jumbotron">
-  <h1 class="display-4">Hello, world!</h1>
-  <p class="lead">This Is MVC Framework Tuotorial First Page</p>
-  <hr class="my-4">
-  <!-- code will go here  -->
-  <p>
-  	
+
       <?php
+
+      include 'system/libs/Main.php';
+      include 'system/libs/Load.php';
+      include 'system/libs/Dcontroller.php';
+
         
          $url = isset($_GET['url'])?$_GET['url']:NULL;
-
+ 
+      // if request controller then load it 
          if($url != NULL){
 
         $url = rtrim($url,'/');
 
-        $url = explode('/',$url);
+        $url = explode('/',filter_var($url,FILTER_SANITIZE_URL));
          }
          else{
            
-           unset($url)
+           unset($url);
          }
 
-        if($url[0]){
+        if(isset($url[0])){
         include 'app/controllers/'.$url[0].'.php';
         
         $obj  = new $url[0](); 
@@ -42,23 +38,17 @@
         }
 
         }
+        // else dafault controller will loaded 
+        else{
+         
+         include 'app/controllers/Index.php';
+
+         $ctrl = new Index();
+           
+         $ctrl->home();
+
+        }
 
      
-     
-
-
-
-
+    
        ?>
-  </p>
-  <p class="lead">
-    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-  </p>
-</div>
-  	</div>
-  </div>
-  </div>	
-  	
-  </div>
-
-<?php include 'inc/footer.php' ?>
