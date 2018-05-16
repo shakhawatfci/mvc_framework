@@ -6,8 +6,11 @@ class Dmodel{
  protected $db = [];
 
  public function __construct(){
-    
-    $this->db = new Database();
+      
+      $dsn = 'mysql:dbname=mvc_framework; host:localhost';
+      $user = 'root'; 
+      $password = ''; 
+    $this->db = new Database($dsn,$user,$password);
 
  }
 

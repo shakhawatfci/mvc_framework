@@ -56,8 +56,8 @@
         
        	?>
        <h3><?php echo $value['name']; ?></h3>
-       <h3><?php echo $value['id']; ?></h3>
-       <h3><?php echo $value['top_category']; ?></h3>
+       <h3><?php echo $value['id'];   ?></h3>
+       <h3></h3>
 
         <hr>
        <?php } ?>
