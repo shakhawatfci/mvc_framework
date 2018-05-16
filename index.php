@@ -1,11 +1,11 @@
 
-      <?php
-
+   <?php
       include 'system/libs/Main.php';
       include 'system/libs/Load.php';
-      include 'system/libs/Dcontroller.php';
+      include 'system/libs/Dcontroller.php';   
+      include 'system/libs/Database.php';
+      include 'system/libs/Dmodel.php';
 
-        
          $url = isset($_GET['url'])?$_GET['url']:NULL;
  
       // if request controller then load it 

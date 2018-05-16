@@ -6,11 +6,28 @@
 class Load
 {
 	
+	// public function __construct(argument)
+	// {
+	// 	# code...
+	// }
 
+	public function view($fileName,$data = false){
 
-	public function view($fileName){
+		if($data == true){
+           
+           extract($data);
+		}
         
         include 'app/views/'.$fileName.'.php';
+	}
+
+
+	public function model($modelName){
+       
+       include 'app/model/'.$modelName.'.php';
+
+       return new $modelName();
+
 	}
 
 }

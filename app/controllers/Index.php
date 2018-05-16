@@ -16,5 +16,15 @@ class Index extends Dcontroller{
   }
 
 
+  public function category(){
+      
+       $data = [];
+       $catModel =  $this->load->model("CatModel");
+       $data['cat'] = $catModel->catlist();
+    $this->load->view("category",$data);
+
+  }
+
+
 
 }
